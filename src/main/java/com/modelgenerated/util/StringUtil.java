@@ -81,6 +81,14 @@ public class StringUtil {
         }
     }
     
+    public static String truncate(String input, int length) {
+    	if (input == null) {
+    		return null;
+    	}
+        return input.substring(0, Math.min(length, input.length()));
+    }
+    
+    
     /* 
      * remove surrounding quotes.
      *
