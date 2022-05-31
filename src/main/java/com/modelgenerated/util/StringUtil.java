@@ -32,6 +32,9 @@ public class StringUtil {
     }
 
     public static String padString(String str, int length) {
+        if (str.length() >= length) {
+            return str;
+        }
         StringBuffer strBuff = new StringBuffer();
         strBuff.append(str);
         padBuffer(strBuff, length);
