@@ -94,9 +94,7 @@ public class NumberUtil {
     public static double round(double input, int precision) {
     	Assert.check(precision < 5, "NumberUtil.round does not work for precision > 4");
     	double power = Math.pow(10, precision);
-    	double fudgeFactor = 0.000001; 
-    	//Logger.debug(LOGGER_CATEGORY, "round power " + power);
-    	//Logger.debug(LOGGER_CATEGORY, "input * power " + ((input * power) + fudgeFactor));
+    	double fudgeFactor = input < 0 ? -0.000001 : 0.000001;
     	double returnValue = Math.round((input * power) + fudgeFactor) / power;
     	
     	return returnValue;
@@ -109,8 +107,6 @@ public class NumberUtil {
     public static double truncate(double input, int precision) {
     	Assert.check(precision < 5, "NumberUtil.round does not work for precision > 4");
     	double power = Math.pow(10, precision);
-    	//Logger.debug(LOGGER_CATEGORY, "round power " + power);
-    	//Logger.debug(LOGGER_CATEGORY, "input * power " + ((input * power) + fudgeFactor));
     	double returnValue = Math.floor(input * power) / power;
     	
     	return returnValue;
