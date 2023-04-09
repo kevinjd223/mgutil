@@ -177,10 +177,18 @@ public class ConfigLocator {
             
             // there is a strange bug that keep this from loading more than x configs
             // try using getResource as stream and see if the problem is fixed.
+
+            System.out.println("ALL PROPERTIES");
+            System.getProperties().forEach((k, v) -> System.out.println(k + ":" + v));
+
+            System.out.println("ALL ENVIRONMENT VARIABLES");
+            System.getenv().forEach((k, v) -> System.out.println(k + ":" + v));
             
 			//String fileSeparator = System.getProperty(FILE_SEPARATOR);
 			String fileSeparator = "/";
             bootstrapPath = System.getProperty(ENV_BOOTSTRAPPATH);
+            System.out.println("bootstrapPath:" + bootstrapPath);
+
             if (bootstrapPath != null) {
                 String bootstrapFile = bootstrapPath + fileSeparator + BOOTSTRAPFILE;
 				System.out.println("bootstrapFile " + bootstrapFile);
@@ -224,12 +232,12 @@ public class ConfigLocator {
      * If not it will look on the classpath.
      *
      */
-    static public synchronized Config findConfig(String configName) {
+    static public synchronized <T extends Config> T findConfig(String configName) {
         Assert.check(configs.containsKey(configName), "missing config: *" + configName + "*");
         
         Config config = (Config)configs.get(configName);
 
-        return config;
+        return (T)config;
     }
 
     static public String getBasePath() {
