@@ -7,8 +7,8 @@
 
 package com.modelgenerated.foundation.logging;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Priority;
+
+import org.slf4j.LoggerFactory;
 
 /**
  * This is a wrapper around log4j.
@@ -20,14 +20,10 @@ public class Logger {
     /** Creates a new instance of Logger */
     public Logger() {
     }
-    
-    static private void log(Priority priority, String category, Object message) {
-        org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(category);
-        logger.log(priority, message);
-    }
-    
+
     static public void debug(String category, Object message) {
-        log(Level.DEBUG, category, message);
+        org.slf4j.Logger logger = LoggerFactory.getLogger(category);
+        logger.debug(message.toString());
     }
     
     static public void debug(Object objectCategory, Object message) {
@@ -35,7 +31,8 @@ public class Logger {
     }
     
     static public void info(String category, Object message) {
-        log(Level.INFO, category, message);
+        org.slf4j.Logger logger = LoggerFactory.getLogger(category);
+        logger.info(message.toString());
     }
     
     static public void info(Object objectCategory, Object message) {
@@ -43,7 +40,8 @@ public class Logger {
     }
     
     static public void warn(String category, Object message) {
-        log(Level.WARN, category, message);
+        org.slf4j.Logger logger = LoggerFactory.getLogger(category);
+        logger.warn(message.toString());
     }
     
     static public void warn(Object objectCategory, Object message) {
@@ -51,7 +49,8 @@ public class Logger {
     }
     
     static public void error(String category, Object message) {
-        log(Level.ERROR, category, message);
+        org.slf4j.Logger logger = LoggerFactory.getLogger(category);
+        logger.error(message.toString());
     }
     
     static public void error(Object objectCategory, Object message) {
