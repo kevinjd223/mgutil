@@ -1,8 +1,6 @@
-/*
- * Logger.java
+/* Logger.java
  *
- * Created on December 3, 2002, 9:58 PM
- * Copyright 2002-2005 Kevin Delargy.
+ * Copyright 2002-2024 Kevin Delargy.
  */
 
 package com.modelgenerated.foundation.logging;
@@ -11,9 +9,7 @@ package com.modelgenerated.foundation.logging;
 import org.slf4j.LoggerFactory;
 
 /**
- * This is a wrapper around log4j.
- *
- * @author  kevind
+ * This is a wrapper around slf4j.
  */
 public class Logger {
     
