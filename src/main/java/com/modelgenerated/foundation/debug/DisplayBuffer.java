@@ -12,11 +12,11 @@ package com.modelgenerated.foundation.debug;
  */
 public class DisplayBuffer {
     private static final String TAB = "  ";
-    StringBuffer strBuf;
+    StringBuilder strBuf;
     
     /** Creates a new instance of DisplayUtil */
     public DisplayBuffer() {
-        strBuf = new StringBuffer();
+        strBuf = new StringBuilder();
     }
     
     public static DisplayBuffer newInstance(String className, String objectDescription, int level, int maxLevel) {
@@ -56,7 +56,7 @@ public class DisplayBuffer {
     
     //here is the static stuff
     private static String indent(int tabs) {
-        StringBuffer str = new StringBuffer();
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < tabs; i++) {
             str.append(TAB);
         }

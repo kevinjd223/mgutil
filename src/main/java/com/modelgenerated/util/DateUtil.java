@@ -202,7 +202,7 @@ public class DateUtil {
         remainder = remainder - (hours * MILLISECONDSPERHOUR);
         long minutes = remainder / MILLISECONDSPERMINUTE;
 
-        StringBuffer strBuf = new StringBuffer();
+        StringBuilder strBuf = new StringBuilder();
         if (days != 0) {
             strBuf.append(days); 
             strBuf.append(daysString); 
@@ -231,7 +231,7 @@ public class DateUtil {
         long hours = milliseconds / MILLISECONDSPERHOUR;
         long minutes = (milliseconds - (hours * MILLISECONDSPERHOUR)) / MILLISECONDSPERMINUTE;
         
-        StringBuffer strBuf = new StringBuffer();
+        StringBuilder strBuf = new StringBuilder();
         if (hours != 0) {
             strBuf.append(hours); 
             strBuf.append("hrs "); 

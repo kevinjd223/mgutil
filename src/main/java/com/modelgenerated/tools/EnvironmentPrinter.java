@@ -21,7 +21,7 @@ public class EnvironmentPrinter {
     
     public static void printEnvironment() {
         // print heading
-        StringBuffer output = new StringBuffer("Key");
+        StringBuilder output = new StringBuilder("Key");
         StringUtil.padBuffer(output, 40);
         output.append("Value");
         System.out.println(output);
@@ -31,7 +31,7 @@ public class EnvironmentPrinter {
         Enumeration keys = props.keys();
         while (keys.hasMoreElements()) {
             String key = (String)keys.nextElement();
-            output = new StringBuffer(key);
+            output = new StringBuilder(key);
             StringUtil.padBuffer(output, 40);
             output.append(System.getProperty(key));
             System.out.println(output);

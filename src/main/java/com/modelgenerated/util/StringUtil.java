@@ -25,23 +25,21 @@ public class StringUtil {
 
     /* Increases the length strBuf to the specified length by padding with spaces.
      */ 
-    public static void padBuffer(StringBuffer strBuff, int length) {
+    public static void padBuffer(StringBuilder strBuff, int length) {
         strBuff.setLength(length);
         String str = strBuff.toString().replaceAll("\0", " ");
         strBuff.replace (0, length, str);        
     }
 
     public static String padString(String str, int length) {
-        StringBuffer strBuff = new StringBuffer();
+        StringBuilder strBuff = new StringBuilder();
         strBuff.append(str);
         padBuffer(strBuff, length);
         return strBuff.toString();
     }
     
     public static String padLeft(String str, int paddedLength, char paddingCharacter) {
-        StringBuffer strBuff = new StringBuffer();
-        // FIXME: this is a workaround for a bug in StringBuffer.append(char);
-        // AbstractStringBuffer visibility bug.
+        StringBuilder strBuff = new StringBuilder();
         String charString = "" + paddingCharacter;
         for (int i = 0; i < paddedLength - str.length(); i++) {
             strBuff.append(charString);
