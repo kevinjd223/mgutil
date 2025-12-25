@@ -12,11 +12,11 @@ package com.modelgenerated.foundation.debug;
  * @author  kevind
  */
 public class DisplayUtil {
-    StringBuffer strBuf;
+    StringBuilder strBuf;
     
     /** Creates a new instance of DisplayUtil */
     public DisplayUtil() {
-        strBuf = new StringBuffer();
+        strBuf = new StringBuilder();
     }
     
     public static DisplayUtil newInstance(String message, int level, int maxLevel) {
@@ -49,7 +49,7 @@ public class DisplayUtil {
     
     
     public static String indent(int indent) {
-        StringBuffer str = new StringBuffer();
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < indent; i++) {
             str.append(" ");
         }
@@ -62,14 +62,14 @@ public class DisplayUtil {
     }
 
     
-    public static void initialize(StringBuffer strBuf, int indent) {
+    public static void initialize(StringBuilder strBuf, int indent) {
         if (indent == 0) {
             strBuf.append(indent(indent));
             strBuf.append("DEBUG DISPLAY");
             strBuf.append("\n");
         }
     }
-    public static void addLine(StringBuffer strBuf, int indent, String text) {
+    public static void addLine(StringBuilder strBuf, int indent, String text) {
         strBuf.append(indent(indent));
         strBuf.append(text);
         strBuf.append("\n");
